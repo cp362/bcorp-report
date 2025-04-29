@@ -36,7 +36,7 @@ enhance the development and use of our open-source software, they are
 not fundamentally required for those without the need or the ability to
 pay for them.
 
-As of May 2024, Posit is spending \~38% of its engineering resources on
+As of December 2024, Posit is spending \~35% of its engineering resources on
 open-source software development, and is leading contributions to over
 350 open-source projects. Posit-led projects targeted a
 broad range of areas including the RStudio IDE; infrastructure libraries
@@ -50,7 +50,7 @@ of smaller projects via the Open Source Collective or directly on
 Github. Additional information about our products and company
 contributions for the past two years can be found in our ["Year In
 Review" blog
-posts](https://posit.co/blog/2023-posit-year-in-review/).
+posts](https://posit.co/blog/2024-posit-year-in-review/).
 
 {{< colbreak >}}
 
