@@ -167,7 +167,7 @@ Shiny Server products as of May 2024.
 #| label: shiny
 #| fig-height: 2.75
 python |> 
-  filter(package == "shiny", year(date) > 2022) |> 
+  filter(package == "shiny") |> 
   growth_plot() + ggtitle("Shiny for Python")
 r |> filter(package == "shiny") |> growth_plot() + ggtitle("Shiny for R")
 ```
@@ -302,7 +302,7 @@ incrementally, while the simple plots remain simple to create.
 
 ```{r}
 #| label: plotnine
-python |> filter(package == "plotnine", year(date) > 2022) |> growth_plot() + ggtitle("Plotnine")
+python |> filter(package == "plotnine") |> growth_plot() + ggtitle("Plotnine")
 ```
 
 
@@ -326,7 +326,7 @@ pandas, [DuckDB](https://duckdb.org/) and SQL, providing a
 
 ```{r}
 #| label: siuba
-python |> filter(package == "siuba", year(date) > 2022) |> growth_plot() + ggtitle("Siuba")
+python |> filter(package == "siuba") |> growth_plot() + ggtitle("Siuba")
 ```
 
 :::

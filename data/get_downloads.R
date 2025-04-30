@@ -11,16 +11,29 @@ library(tidymodels)
 # https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/
 # Set up new Google Big Query project: `pypi-downloads-458318`
 billing <- "pypi-downloads-458318"
-sql <-
-  "SELECT 
+
+python_packages <- c("great-tables", "shiny", "vetiver", "plotnine", "siuba")
+packages_sql <- paste0("'", paste(python_packages, collapse = "','"), "'")
+
+mirrors <- c("bandersnatch", "z3c.pypimirror", "Artifactory", "devpi")
+mirrors_sql <- paste0("'", paste(mirrors, collapse = "','"), "'")
+
+sql <- sprintf(
+  "
+SELECT 
     COUNT(*) AS downloads,
     DATE(timestamp) AS `date`,
     file.project AS package
-  FROM `bigquery-public-data.pypi.file_downloads`
-  WHERE
-    file.project IN ('great-tables', 'shiny', 'vetiver', 'plotnine', 'siuba')
-  GROUP BY `date`, file.project
-  ORDER BY `date`"
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE
+    file.project IN (%s)
+    AND DATE(timestamp) >= '2023-10-25'
+    AND details.installer.name NOT IN (%s)
+GROUP BY `date`, file.project
+ORDER BY `date`",
+  packages_sql,
+  mirrors_sql
+)
 
 tb <- bq_project_query(billing, sql)
 python_downloads <- bq_table_download(tb)
