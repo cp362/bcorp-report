@@ -473,7 +473,7 @@ Quarto allows users to choose from multiple computational engines (Knitr, Jupyte
 There are 5 full time equivalent (FTE) employees developing open-source Quarto products as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/quarto-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/quarto-1.svg"))
 
 ])
 
@@ -492,12 +492,8 @@ Shiny applications can be shared with others via an open-source #link("https://p
 There are 5 FTE Posit employees developing the open-source Shiny and Shiny Server products as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/shiny-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/shiny-1.svg")) #box(image("images/generate-plots_files/figure-typst/shiny-2.svg"))
 
-#block[
-#box(image("pbc-report_files/figure-typst/shiny-2.svg"))
-
-]
 ])
 
 #pagebreak()
@@ -515,12 +511,8 @@ To that end, the #link("https://gt.rstudio.com/")[gt] and #link("https://posit-d
 As of May 2024, there is 1 FTE Posit employee developing gt / Great Tables open-source packages.
 
 ]
-#box(image("pbc-report_files/figure-typst/gt-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/gt-1.svg")) #box(image("images/generate-plots_files/figure-typst/gt-2.svg"))
 
-#block[
-#box(image("pbc-report_files/figure-typst/gt-2.svg"))
-
-]
 ])
 
 #page_banner(
@@ -532,12 +524,8 @@ image_paths:("assets/images/hexes/vetiver.svg",),
 #link("https://vetiver.posit.co/")[Vetiver] solves the issues around versioning, sharing, deploying and monitoring predictive models served via APIs. Available for both R and Python, vetiver is extensible via generics that support many common types of models. #colbreak() Vetiver also provides the "model cards" functionality, which can help to generate documentation by extracting some information about the generated model.
 
 ]
-#box(image("pbc-report_files/figure-typst/vetiver-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/vetiver-1.svg")) #box(image("images/generate-plots_files/figure-typst/vetiver-2.svg"))
 
-#block[
-#box(image("pbc-report_files/figure-typst/vetiver-2.svg"))
-
-]
 ])
 
 #page_banner(
@@ -572,7 +560,7 @@ image_paths:("assets/images/hexes/plotnine.png",),
 #link("https://plotnine.org/")[Plotnine] is an implementation of the grammar of graphics in Python, heavily influenced by ggplot2 in R. Built upon the ubiquitous #link("https://matplotlib.org/")[matplotlib] plotting library, #colbreak() custom (and otherwise complex) plots are easy to reason about and build incrementally, while the simple plots remain simple to create.
 
 ]
-#box(image("pbc-report_files/figure-typst/plotnine-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/plotnine-1.svg"))
 
 ])
 
@@ -585,7 +573,7 @@ image_paths:("assets/images/hexes/siuba.svg",),
 #link("https://siuba.org/")[Siuba] is a port of dplyr and other R libraries. It’s aim is to make data science faster through a consistent interface of verbs for working with real-world data: filter, arrange, select, mutate and summarize. #colbreak() Siuba supports several backends including pandas, #link("https://duckdb.org/")[DuckDB] and SQL, providing a "write once, run many" freedom for your analytics code.
 
 ]
-#box(image("pbc-report_files/figure-typst/siuba-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/siuba-1.svg"))
 
 ])
 
@@ -601,7 +589,7 @@ image_paths:("assets/images/hexes/RStudio.svg",),
 There are 5 FTE Posit employees developing the RStudio IDE open-source desktop and server products as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/rstudio-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/rstudio-1.svg"))
 
 ])
 
@@ -619,7 +607,7 @@ The tidyverse consists of nine core packages (including ggplot2, tidyr and readr
 There are 9 FTE Posit employees developing Tidyverse and related open-source products as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/tidyverse-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/tidyverse-1.svg"))
 
 ])
 
@@ -637,7 +625,7 @@ There are currently 42 tidymodels packages on CRAN. Popular tidymodels packages 
 There are 3 FTE Posit employees developing Tidymodels and related open-source products as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/tidymodels-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/tidymodels-1.svg"))
 
 ])
 
@@ -655,7 +643,7 @@ Connectivity packages include: #link("https://spark.posit.co/")[sparklyr];, #lin
 There are 3 FTE Posit employees creating connectivity-related open-source packages as of May 2024.
 
 ]
-#box(image("pbc-report_files/figure-typst/connectivity-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/connectivity-1.svg"))
 
 ])
 
@@ -671,7 +659,7 @@ R-lib is a large collection of R packages that make it easier to build, find, an
 There are currently 114 R-lib packages. Popular packages include #link("https://devtools.r-lib.org/")[devtools];, #link("https://testthat.r-lib.org/")[testthat];, #link("https://roxygen2.r-lib.org/")[roxygen2];, #link("https://pkgdown.r-lib.org/")[pkgdown] and #link("https://usethis.r-lib.org/")[usethis];.
 
 ]
-#box(image("pbc-report_files/figure-typst/rlibs-1.svg"))
+#box(image("images/generate-plots_files/figure-typst/rlibs-1.svg"))
 
 ])
 
