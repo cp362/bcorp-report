@@ -35,7 +35,7 @@ execute:
 #counter(page).update(1)
 ```
 
-# A Message from our CEO 
+# A Message from our Founder & CEO
 
 ::: {.cols-2}
 
