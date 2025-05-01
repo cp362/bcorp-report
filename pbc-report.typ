@@ -336,7 +336,7 @@
 
 #show: doc => posit(
   title: [Posit Benefit Corporation],
-  subtitle: [2024 Annual Report],
+  subtitle: [DRAFT 2025 Annual Report],
   font: ("Open Sans",),
   doc,
 )
@@ -717,7 +717,7 @@ The B Lab’s Impact assessment standards have evolved since 2019 (we are now on
 <civic-engagement-and-giving>
 In addition to the open-source software we make freely available, and the open source data science package development produced by Posit engineers, Posit recognizes the importance of contributing financially to other valuable open-source and community initiatives. To date, Posit has given over \$1.9M to projects led by others. Current commitments include contributing to NumFOCUS, the R Consortium, the R Foundation, DuckDB, the Eclipse Foundation, and the authors and maintainers of several other open-source projects.
 
-Posit’s financial support also extends beyond the world of open source data science. Since 2020, Posit and its employees have given over \$60k to over 135 nonprofits. Our donations reach a range of community-based causes, including organizations dedicated to racial equality, equal justice, LGBTQ+ support, and access to education. Alongside our donations to open source software development, this pool of charitable contributions contributes to the important work many are doing to increase the accessibility of data science for all. Our scoring in this area of the B Lab assessment has increased by 39.5% since 2019.
+Posit’s financial support also extends beyond the world of open source data science. Since 2020, Posit and its employees have given over \$70k to over 140 nonprofits. Our donations reach a range of community-based causes, including organizations dedicated to racial equality, equal justice, LGBTQ+ support, and access to education. Alongside our donations to open source software development, this pool of charitable contributions contributes to the important work many are doing to increase the accessibility of data science for all. Our scoring in this area of the B Lab assessment has increased by 39.5% since 2019.
 
 === Diversity, Equity, and Inclusion
 <diversity-equity-and-inclusion>
