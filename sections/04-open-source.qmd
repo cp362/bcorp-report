@@ -21,38 +21,27 @@ posit_colors <- list(
 thematic_on(bg = "white", fg = posit_colors$grey, accent = posit_colors$blue,
   font = "Open Sans")
 
-pydf <- read.csv(here("data", "pypi_stats.csv"), col.names = c("date", "downloads", "pkg"))
-rdf <- read.csv(here("data","rpkgs.csv"), col.names = c("date", "downloads", "pkg"))
-tidyvdf <- read.csv(here("data","tidyverse_pkgs.csv"), col.names = c("date", "downloads", "pkg"))
-tidymdf <- read.csv(here("data", "tidymodels_pkgs.csv"), col.names = c("date", "downloads", "pkg"))
-rlibdf <- read.csv(here("data","rlib_pkgs.csv"), col.names = c("date", "downloads", "pkg"))
-rcondf <- read.csv(here("data","rcon_pkgs.csv"), col.names = c("date", "downloads", "pkg"))
+python <- read_csv(here("data", "python_package_downloads.csv"))
+r <- read_csv(here("data", "r_package_downloads.csv"))
+rstudio <- read_csv(here("data", "rstudio_os_downloads.csv"))
+quarto <- read_csv(here("data", "quarto_downloads.csv"))
 
-rstudiodf <- read.csv(here("data","rstudio_os_dls.csv"), col.names = c("date", "downloads"))
-rstudiodf$pkg <- "RStudio"
+plot_defaults <- list(
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ),
+  xlab(""),
+  ylab("Cumulative Downloads"),
+  theme(panel.background = element_rect(fill = "#EDF0F5"),
+    plot.margin = margin(5.5, 8.5, 5.5, 5.5))
+)
 
-quarto_rstudio_dls <- read.csv(here("data", "quarto_rstudio_dls.csv"), col.names = c("date", "downloads"))
-quarto_rstudio_dls$pkg <- "quarto"
-
-quarto_gh_dls <- read.csv(here("data", "quarto_gh_downloads.csv"), col.names = c("date", "name", "downloads"))
-quarto_gh_dls$date <- as.character(as.Date(quarto_gh_dls$date))
-
-singlepltfunc <- function(df, package) { 
-  return(
-    df %>% 
-    filter(pkg == package) %>%
-    ggplot(aes(x=as.Date(date), y=cumsum(as.numeric(downloads)))) + 
-    geom_line(color = posit_colors$blue, linewidth = 0.75) +  
-    scale_x_date(labels=scales::label_date_short()) + 
-    scale_y_continuous(
-      labels = scales::label_number(scale_cut = scales::cut_short_scale())
-    ) +
-    xlab("") + 
-    ylab("Cumulative Downloads") + 
-    ggtitle(package)+
-    theme(panel.background = element_rect(fill = "#EDF0F5"),
-      plot.margin = margin(5.5, 8.5, 5.5, 5.5))
-  )
+growth_plot <- function(data, y = downloads) { 
+  data |> 
+  ggplot(aes(x = date, y = cumsum(as.numeric(downloads)))) + 
+  geom_line(color = posit_colors$blue, linewidth = 0.75) +  
+  scale_x_date(labels=scales::label_date_short()) +
+  plot_defaults
 }
 
 ```
@@ -131,35 +120,11 @@ Quarto products as of May 2024.
  
 ```{r}
 #| label: quarto
-quarto_rstudio_by_version <- quarto_rstudio_dls %>% 
-  summarise(downloads = sum(downloads)) %>%
-  mutate(minor_version = "0.9")
-
-quarto_by_version <- quarto_gh_dls %>% 
-  filter(!str_detect(name, "changelog"), !str_detect(name, "checksums")) %>%
-  mutate(
-    version = str_extract(name, "[01]\\.[0-9]\\.[0-9]+"),
-    minor_version = str_extract(version, "[01]\\.[0-9]")
-  ) %>% 
-  bind_rows(quarto_rstudio_by_version) %>%
-  group_by(minor_version) %>%
-  summarise(
-    total = sum(downloads),
-    min_date = min(as.Date(date)),
-    max_date = max(as.Date(date))
-  ) %>%
-  mutate(minor_version = if_else(minor_version == 1.5, "1.5\nPre-release", minor_version))
-
-quarto_by_version %>%
-  ggplot(aes(minor_version, cumsum(total))) +
-    geom_line(aes(group = 1), color = posit_colors$blue, linewidth = 0.75) + 
-    scale_y_continuous(
-      labels = scales::label_number(scale_cut = scales::cut_short_scale())
-    ) +
-    xlab("Minor Version") +
-    ylab("Cumulative Downloads") +
-    ggtitle("Quarto")+
-    theme(panel.background = element_rect(fill = "#EDF0F5"))
+quarto |> 
+  mutate(major_minor = if_else(major_minor == 1.8, "1.8\nPre-release", as.character(major_minor))) |> 
+  ggplot(aes(major_minor, cumsum(downloads))) +
+  geom_line(aes(group = 1), color = posit_colors$blue, linewidth = 0.75) +  
+  plot_defaults
 ```
 
 ::: 
@@ -201,8 +166,10 @@ Shiny Server products as of May 2024.
 ```{r}
 #| label: shiny
 #| fig-height: 2.75
-singlepltfunc(pydf, "shiny") + ggtitle("Shiny for Python")
-singlepltfunc(rdf, "shiny") + ggtitle("Shiny for R")
+python |> 
+  filter(package == "shiny") |> 
+  growth_plot() + ggtitle("Shiny for Python")
+r |> filter(package == "shiny") |> growth_plot() + ggtitle("Shiny for R")
 ```
 
 ::: 
@@ -236,8 +203,8 @@ Tables open-source packages.
 
 ```{r}
 #| label: gt
-singlepltfunc(pydf, "great_tables")
-singlepltfunc(rdf, "gt")
+python |> filter(package == "great-tables") |> growth_plot() + ggtitle("great_tables")
+r |> filter(package == "gt") |> growth_plot() + ggtitle("gt")
 ```
 
 :::
@@ -259,8 +226,8 @@ documentation by extracting some information about the generated model.
 
 ```{r}
 #| label: vetiver
-singlepltfunc(pydf, "vetiver") + ggtitle("vetiver for Python")
-singlepltfunc(rdf, "vetiver") + ggtitle("vetiver for R")
+python |> filter(package == "vetiver") |> growth_plot() + ggtitle("vetiver for Python")
+r |> filter(package == "vetiver", year(date) > 2021) |> growth_plot() + ggtitle("vetiver for R")
 ```
 
 :::
@@ -335,7 +302,7 @@ incrementally, while the simple plots remain simple to create.
 
 ```{r}
 #| label: plotnine
-singlepltfunc(pydf, "plotnine")
+python |> filter(package == "plotnine") |> growth_plot() + ggtitle("Plotnine")
 ```
 
 
@@ -359,7 +326,7 @@ pandas, [DuckDB](https://duckdb.org/) and SQL, providing a
 
 ```{r}
 #| label: siuba
-singlepltfunc(pydf, "siuba")
+python |> filter(package == "siuba") |> growth_plot() + ggtitle("Siuba")
 ```
 
 :::
@@ -388,7 +355,7 @@ desktop and server products as of May 2024.
 
 ```{r}
 #| label: rstudio
-singlepltfunc(rstudiodf, "RStudio")
+rstudio |> growth_plot() + ggtitle("RStudio")
 ```
 
 :::
@@ -416,12 +383,12 @@ open-source products as of May 2024.
 
 ```{r}
 #| label: tidyverse
-tidyvdf %>% 
-  group_by(date) %>% 
-  summarise(downloads = sum(downloads)) -> tidyvdf
-tidyvdf$pkg <- "Tidyverse"
-  
-singlepltfunc(tidyvdf, "Tidyverse")
+r |> 
+  filter(project == "tidyverse") |> 
+  group_by(date) |> 
+  summarise(downloads = sum(downloads)) |> 
+  growth_plot() + 
+  ggtitle("Tidyverse")
 ```
 
 :::
@@ -450,12 +417,12 @@ open-source products as of May 2024.
 
 ```{r}
 #| label: tidymodels
-tidymdf %>% 
-  group_by(date) %>% 
-  summarise(downloads = sum(downloads)) -> tidymdf
-tidymdf$pkg <- "Tidymodels"
-  
-singlepltfunc(tidymdf, "Tidymodels")
+r |> 
+  filter(project == "tidymodels") |> 
+  group_by(date) |> 
+  summarise(downloads = sum(downloads)) |> 
+  growth_plot() + 
+  ggtitle("Tidymodels")
 ```
 
 :::
@@ -486,12 +453,12 @@ open-source packages as of May 2024.
 
 ```{r}
 #| label: connectivity
-rcondf %>% 
-  group_by(date) %>% 
-  summarise(downloads = sum(downloads)) -> rcondf
-rcondf$pkg <- "R Connectivity"
-  
-singlepltfunc(rcondf, "R Connectivity")
+r |> 
+  filter(project == "connectivity") |> 
+  group_by(date) |> 
+  summarise(downloads = sum(downloads)) |> 
+  growth_plot() + 
+  ggtitle("R Connectivity")
 ```
 
 :::
@@ -526,12 +493,12 @@ include [devtools](https://devtools.r-lib.org/),
 
 ```{r}
 #| label: rlibs
-rlibdf %>% 
-  group_by(date) %>% 
-  summarise(downloads = sum(downloads)) -> rlibdf
-rlibdf$pkg <- "R-Lib"
-  
-singlepltfunc(rlibdf, "R-Lib")
+r |> 
+  filter(project == "r-lib") |> 
+  group_by(date) |> 
+  summarise(downloads = sum(downloads)) |> 
+  growth_plot() + 
+  ggtitle("R Libs")
 ```
 
 ::: 
