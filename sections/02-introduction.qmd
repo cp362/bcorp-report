@@ -48,9 +48,9 @@ by others, including NumFOCUS, the R Consortium, the Python Software
 Foundation, DuckDB, Pandoc, pyodide, and ProseMirror, as well as dozens
 of smaller projects via the Open Source Collective or directly on
 Github. Additional information about our products and company
-contributions for the past two years can be found in our ["Year In
+contributions can be found in our ["Year In
 Review" blog
-posts](https://posit.co/blog/2024-posit-year-in-review/).
+posts](https://posit.co/blog/?post_tag=year-in-review).
 
 {{< colbreak >}}
 
