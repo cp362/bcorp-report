@@ -12,7 +12,14 @@ library(tidymodels)
 # Set up new Google Big Query project: `pypi-downloads-458318`
 billing <- "pypi-downloads-458318"
 
-python_packages <- c("great-tables", "shiny", "vetiver", "plotnine", "siuba")
+python_packages <- c(
+  "great-tables",
+  "shiny",
+  "vetiver",
+  "pins",
+  "plotnine",
+  "siuba"
+)
 packages_sql <- paste0("'", paste(python_packages, collapse = "','"), "'")
 
 mirrors <- c("bandersnatch", "z3c.pypimirror", "Artifactory", "devpi")
@@ -37,7 +44,9 @@ ORDER BY `date`",
 
 tb <- bq_project_query(billing, sql)
 python_downloads <- bq_table_download(tb)
-python_downloads |> write_csv(here("data", "python_package_downloads.csv"))
+python_downloads |>
+  arrange(package, date) |>
+  write_csv(here("data", "python_package_downloads.csv"))
 
 # R Package Downloads ------------------------------------------------------
 tidyverse <- tibble(
@@ -66,8 +75,8 @@ connectivity <- tibble(
 
 r_packages <-
   tibble(
-    package = c("shiny", "gt", "vetiver", "webR"),
-    project = c("shiny", "gt", "vetiver", "webR"),
+    package = c("shiny", "gt", "vetiver", "pins", "webR"),
+    project = c("shiny", "gt", "vetiver", "pins", "webR"),
   ) |>
   bind_rows(
     tidyverse,
