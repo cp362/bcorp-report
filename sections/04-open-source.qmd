@@ -103,10 +103,10 @@ More recently, the [Shiny Express](https://shiny.posit.co/py/docs/express-in-dep
 syntax was introduced. It offers a steamlined syntax that makes it easier 
 for Python developers to get started with Shiny.
 
+{{< colbreak >}}
+
 New packages (listed in a later section) also highlight Shiny as a strong 
 platform for building chat-based and other LLM-powered apps.
-
-{{< colbreak >}}
 
 Shiny applications can be shared with others via an open-source [Shiny
 Server](https://posit.co/products/open-source/shinyserver/),
@@ -130,7 +130,7 @@ Shiny Server products as of May 2025.
 
 ```{r}
 #| label: shiny
-#| fig-height: 2.75
+#| fig-height: 2.4
 python |> 
   filter(package == "shiny") |> 
   growth_plot() + ggtitle("Shiny for Python")
@@ -141,7 +141,7 @@ r |> filter(package == "shiny") |> growth_plot() + ggtitle("Shiny for R")
 
 {{< pagebreak >}}
 
-::: {.page-banner image_paths='("assets/images/hexes/ellmer.svg","assets/images/hexes/ragnar.png", "assets/images/hexes/ragnar.png", "assets/images/hexes/gander(lores).png", "assets/images/hexes/mall.png")'}
+::: {.page-banner image_paths='("assets/images/hexes/ellmer.svg", "assets/images/hexes/chatlas.png", "assets/images/hexes/ragnar.png", "assets/images/hexes/gander-lores.png", "assets/images/hexes/mall.png")'}
 
 ## AI and LLM Enablement
 
@@ -152,14 +152,16 @@ Posit's Open Source teams are building tools to help data scientists responsibly
 use LLMs in their analysis, leveraging them to help during development, 
 and incorporating LLM capabilities in the solutions they provide others.
 
-### Selection of packages for enabling LLMs in data science applications
+### Selection of packages for enabling LLMs in data science applications {.unlisted}
 
 - [Ellmer](https://ellmer.tidyverse.org/) makes it easy to use large language models (LLM) from R. It supports a  variety of LLM providers and implements a rich set of features including streaming outputs, tool/function calling and structured data extraction.
 - [Chatlas](https://posit.co/blog/announcing-chatlas/) is a flexible Python interface to many LLM providers (playing a similar role to ellmer). It supports tool use, function calling, and streaming responses.
 - [Ragnar](https://ragnar.tidyverse.org) brings Retrieval-Augmented Generation (RAG) to R. Helps users index their own data and get LLM responses with grounded answers.
 - [Querychat](https://github.com/posit-dev/querychat) adds an SQL-powered LLM to Shiny apps. It lets users explore data with natural language. Querychat works in both R and Python.
 
-### Selection of packages that assist during development
+{{< colbreak >}}
+
+### Selection of packages that assist during development {.unlisted}
 
 - [ShinyAssistant](https://shiny.posit.co/blog/posts/shiny-assistant/) helps prototype Shiny apps using a simple chat interface leveraging LLMs to generate entire applications.
 - [Gander](https://posit.co/blog/introducing-gander/) is a coding assistant that understands R environments and shares context like column names and types to improve help quality.
@@ -171,6 +173,8 @@ Positron is Posit's new IDE described below.
 
 As of May 2025, 4 FTE Posit employees are working  
 on open-source tools related to LLMs.
+
+:::
 
 :::
 
@@ -207,7 +211,6 @@ r |> filter(package == "gt") |> growth_plot() + ggtitle("gt")
 
 :::
 
-::: {.page-banner image_paths='("assets/images/hexes/pins.svg",)'}
 
 ::: {.page-banner image_paths='("assets/images/hexes/plotnine.png",)'}
 
@@ -233,6 +236,8 @@ python |> filter(package == "plotnine") |> growth_plot() + ggtitle("Plotnine")
 
 :::
 
+::: {.page-banner image_paths='("assets/images/hexes/pins.svg",)'}
+
 ## Pins
 
 ::: {.cols-2}
@@ -241,6 +246,9 @@ Pins (for [R](https://pins.rstudio.com/) and [python](https://rstudio.github.io/
 publish data, models, and other objects, making them easy to share across projects and with other. 
 Users can pin objects to a variety of pin boards, including folders (to share on a networked 
 drive or with services like DropBox), Posit Connect, Amazon S3, and Google Cloud Storage. 
+
+{{< colbreak >}}
+
 Pins can be automatically versioned, making it straightforward to track changes, 
 re-run analyses on historical data, and undo mistakes.
 
@@ -277,18 +285,11 @@ r |> filter(package == "vetiver", year(date) > 2021) |> growth_plot() + ggtitle(
 
 :::
 
-```{=typst}
-#v(6em)
-#place(right, dy: -3em, image("assets/images/hexes/webr.svg", height: 5em))
-```
-
-:::
-
-::: {.page-banner image_paths='("assets/images/hexes/plotnine.png",)'}
-
-## Orbital
+::: {.page-banner image_paths='("assets/images/hexes/orbital.png","assets/images/hexes/webr.svg")'}
 
 ::: {.cols-2}
+
+## Orbital
 
 [Orbital](https://github.com/posit-dev/orbital) lets you run machine learning 
 models inside your database.  Originally an [R package](https://orbital.tidymodels.org/articles/orbital.html), 
@@ -296,18 +297,16 @@ it now also supports Python.  In Python, orbital converts scikit-learn models in
 SQL, so they can run directly in a database like Snowflake—no Python environment needed.  
 The performance gains this approach has provided is quite signficant.    
 
-:::
+{{< colbreak >}}
 
 ## webR
-
-::: {.cols-2}
 
 [WebR](https://docs.r-wasm.org/webr/latest/) has the
 ambitious goal of bringing the R language to the browser, removing the
 need for a backend server for computation. It also allows for
 computation to be done on the client machine, supporting use cases that
 are infeasible or undesirable for using server-side processing (such as
-not wanting to send personal data over the internet). {{< colbreak  >}}
+not wanting to send personal data over the internet). 
 Also, by making
 the most of the user's device capabilities, webR can improve performance
 and lower app hosting costs.
@@ -316,10 +315,7 @@ There is 1 FTE Posit employee developing enterprise focused open-source
 products like orbital as of May 2025.
 
 :::
-
 :::
-
-
 
 ::: {.page-banner image_paths='("assets/images/hexes/tidyverse.svg", )'}
 
@@ -495,7 +491,7 @@ rstudio |> growth_plot() + ggtitle("RStudio")
 
 # Additional Posit Free-to-Use Solutions
 
-::: {.page-banner image_paths='("assets/images/hexes/positron.png",)'}
+::: {.page-banner image_paths='("assets/images/hexes/positron.png",)' image_height="50%"}
 
 ## Positron
 
@@ -519,6 +515,8 @@ compatible extensions (.vsix files), providing extensibility of capabilities bey
 IDE itself. By building on Code OSS, Positron gets rich text editor capabilities and access 
 to 1,000s of community extensions out of the box. 
 
+{{< colbreak >}}
+
 Additional languages typically used in package development are supported via existing third party 
 extensions. These don’t make use of the full Positron data science experience including an interactive 
 console, plots, and similar. Some examples include Rust, Javascript/Typescript, C/C++, or Lua.
@@ -532,13 +530,14 @@ and cohesive experience beyond that of a general-purpose IDE or text editor such
 
 A beta version is currently available for Windows and macOS, with a full release planned for August 2025.
 
-{{< colbreak >}} 
-
 There are 14 FTE Posit employees developing Positron as of May 2025.
 
 :::
 
 :::
+
+::: {.page-banner image_paths='("assets/images/hexes/package-manager.svg",)'}
+
 
 ## Posit Public Package Manager
 
@@ -564,5 +563,5 @@ million downloads per month in Q1 2024.
 
 :::
 
-
+:::
 
