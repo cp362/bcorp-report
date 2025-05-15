@@ -35,7 +35,9 @@ account for every install and usage in the world.
 #place(bottom, dy: 1.25in,
   align(center, 
     box(
-      image("assets/images/INTERNAL-1-POSIT24 Seattle_Nick Klein Photography-86.jpg", width: 100% + 2.5in, fit: "cover"), clip: true, inset: (top: -1in))
+      image("assets/images/INTERNAL-1-POSIT24 Seattle_Nick Klein Photography-86.jpg", fit: "cover"), 
+      width: 100% + 2.5in, clip: true, inset: (top: -1in)
+    )
   )
 )
 ```
