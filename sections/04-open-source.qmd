@@ -169,7 +169,7 @@ and incorporate LLM capabilities in the solutions they provide others.
 - [Mall](https://posit.co/blog/mall-ai-powered-text-analysis/) enables LLM powered sentiment analysis, text summarization, text classification, information extraction and text translation.   Mall is available for both R and Python.
 
 LLMs are also integrated as coding assistants into RStudio and Positron.
-Positron is Posit's new IDE described below.
+Positron is Posit's new IDE described in the [Positron](#positron) section below.
 
 As of May 2025, 4 FTE Posit employees are working  
 on open-source tools related to LLMs.
