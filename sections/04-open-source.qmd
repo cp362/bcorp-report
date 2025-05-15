@@ -105,7 +105,7 @@ for Python developers to get started with Shiny.
 
 {{< colbreak >}}
 
-New packages (listed in a later section) also highlight Shiny as a strong 
+New packages (see [AI and LLM Enablement](#ai-and-llm-enablement)) also highlight Shiny as a strong 
 platform for building chat-based and other LLM-powered apps.
 
 Shiny applications can be shared with others via an open-source [Shiny
