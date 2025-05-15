@@ -30,7 +30,7 @@ keep-typ: true
 #counter(page).update(1)
 ```
 
-# A Message from our CEO 
+# A Message from our Founder & CEO
 
 ::: {.cols-2}
 
@@ -51,7 +51,7 @@ keep-typ: true
 ```{=typst}
 #place(bottom, dy: 1.25in,
   align(center, 
-    image("assets/images/1-1547.jpg", 
+    image("assets/images/INTERNAL-2-POSIT24 Seattle_Nick Klein Photography-341.jpg", 
       width: 100% + 2.5in, fit: "cover")
   )
 )
@@ -94,9 +94,9 @@ keep-typ: true
 :::
 
 ```{=typst}
-#place(bottom, dy: 1.25in,
+#place(bottom, dy: 2.25in,
   align(center, 
-    image("assets/images/Conf-2023-Crowd.jpg", 
+    image("assets/images/BACKCOVER-2-POSIT24 Seattle_Nick Klein Photography-401.jpg", 
       width: 100% + 2.5in, fit: "cover")
   )
 )

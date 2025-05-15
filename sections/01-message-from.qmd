@@ -41,7 +41,12 @@ useful solutions to the important problems of knowledge they face.
 ```
 
 *J.J. Allaire* \
-CEO, Posit PBC
+Founder & Executive Chair, Posit PBC
+
+
+
+*Tareef Kawaf* \
+President & CEO, Posit PBC
 
 ```{=typst}
 ]
