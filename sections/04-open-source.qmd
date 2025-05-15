@@ -34,8 +34,8 @@ account for every install and usage in the world.
 ```{=typst}
 #place(bottom, dy: 1.25in,
   align(center, 
-    image("assets/images/2-0616.jpg", 
-      width: 100% + 2.5in, fit: "cover")
+    box(
+      image("assets/images/INTERNAL-1-POSIT24 Seattle_Nick Klein Photography-86.jpg", width: 100% + 2.5in, fit: "cover"), clip: true, inset: (top: -1in))
   )
 )
 ```
