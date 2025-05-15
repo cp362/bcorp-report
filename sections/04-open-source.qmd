@@ -21,7 +21,7 @@ mean that we've never been solely an "R company".
 
 {{< colbreak >}}
 
-Since the 2023 PBC report, Posit has released several new packages in
+Since the 2024 PBC report, Posit has released several new packages in
 the Python and R ecosystems and continues to maintain and grow the
 libraries previously developed. The following subsections highlight
 selected Posit software projects of interest to the broad data science
@@ -490,6 +490,16 @@ rstudio |> growth_plot() + ggtitle("RStudio")
 :::
 
 # Additional Posit Free-to-Use Solutions
+
+```{=typst}
+#place(bottom, dy: 1.25in,
+  align(center, 
+      image("assets/images/COVER-2-POSIT24 Seattle_Nick Klein Photography-876.jpg", width: 100% + 2.5in, fit: "cover")
+  )
+)
+```
+
+{{< pagebreak >}}
 
 ::: {.page-banner image_paths='("assets/images/hexes/positron.png",)' image_height="50%"}
 
