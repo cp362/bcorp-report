@@ -147,7 +147,7 @@ r |> filter(package == "shiny") |> growth_plot() + ggtitle("Shiny for R")
 
 ::: {.cols-2}
 
-LLMs (large language models) are changing how data scientists work. 
+Large language models (LLMs) are changing how data scientists work. 
 Posit's Open Source teams are building tools to help data scientists responsibly
 use LLMs in their analysis, leveraging them to help during development, 
 and incorporating LLM capabilities in the solutions they provide others.
