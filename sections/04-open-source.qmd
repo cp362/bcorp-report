@@ -303,7 +303,7 @@ and readr) and 31 packages overall.
 {{< colbreak >}}
 
 There are 9 FTE Posit employees developing Tidyverse and related
-open-source products as of May 2024.
+open-source products as of May 2025.
 
 :::
 
@@ -407,7 +407,7 @@ efficient.
 {{< colbreak >}} 
 
 There are 5 FTE Posit employees developing the RStudio IDE open-source
-desktop and server products as of May 2024.
+desktop and server products as of May 2025.
 
 :::
 
