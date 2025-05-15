@@ -152,7 +152,7 @@ Posit's Open Source teams are building tools to help data scientists responsibly
 use LLMs in their analysis, leverage them during development, 
 and incorporate LLM capabilities in the solutions they provide others.
 
-### Selection of packages for enabling LLMs in data science applications {.unlisted}
+### Packages to enable LLMs in data science {.unlisted}
 
 - [Ellmer](https://ellmer.tidyverse.org/) makes it easy to use large language models (LLM) from R. It supports a  variety of LLM providers and implements a rich set of features including streaming outputs, tool/function calling and structured data extraction.
 - [Chatlas](https://posit.co/blog/announcing-chatlas/) is a flexible Python interface to many LLM providers (playing a similar role to ellmer). It supports tool use, function calling, and streaming responses.
