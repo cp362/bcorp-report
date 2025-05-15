@@ -491,6 +491,16 @@ rstudio |> growth_plot() + ggtitle("RStudio")
 
 # Additional Posit Free-to-Use Solutions
 
+::: {.cols-2}
+
+In addition to open-source contributions, Posit develops free-to-use tools that help data scientists write and share code. Some, like Positron, are source-available. Others, like Public Package Manager, are free hosted services.
+
+{{< colbreak >}}
+
+Together, they extend our ecosystem, making high-quality tools accessible to all.
+
+:::
+
 ```{=typst}
 #place(bottom, dy: 1.25in,
   align(center, 
@@ -498,10 +508,6 @@ rstudio |> growth_plot() + ggtitle("RStudio")
   )
 )
 ```
-
-In addition to open-source contributions, Posit develops free-to-use tools that help data scientists write and share code. Some, like Positron, are source-available. Others, like Public Package Manager, are free hosted services.
-
-Together, they extend our ecosystem, making high-quality tools accessible to all.
 
 {{< pagebreak >}}
 
