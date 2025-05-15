@@ -543,7 +543,7 @@ There are 14 FTE Posit employees developing Positron as of May 2025.
 
 ::: {.cols-2}
 
-WIth the ubiquity of open source software in our daily lives, one area
+With the ubiquity of open source software in our daily lives, one area
 that most people don't think about is 'How do you distribute that
 software quickly and securely to the end user?'. To that end, Posit
 created [Posit Package
