@@ -6,7 +6,16 @@ The report content lives in `pbc-report.qmd` and is produced using `format: typs
 
 ## Local rendering
 
-The plots are generated on render so you'll need R. 
+To preview the report:
+
+```{.bash}
+quarto preview pbc-report.qmd
+```
+
+## Updating download data and plots
+
+To update the data and/or plots you'll need R.
+
 When you first open the project (in RStudio or Positron), renv should bootstrap itself:
 
 ```
@@ -25,10 +34,20 @@ Then to get the required packages, on the R Console, run:
 ```{.r}
 renv::restore()
 ```
+### Update data
 
-To preview the report:
+Script for data extraction is in `data/get_downloads.R`. 
+
+### Update plots
+
+Plots are included in the report from `images/plots/generate-plots_files/figure-typst`.
+
+Re-render `images/generate-plots.qmd` to update the plots in the report:
 
 ```{.bash}
-quarto preview pbc-report.qmd
+quarto render images/generate-plots.qmd
 ```
+
+
+
 

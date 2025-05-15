@@ -1,9 +1,3 @@
-```{r}
-#| label: setup
-#| include: false
-library(here)
-source(here("sections", "setup.R"))
-```
 
 ::: {.cols-2}
 
@@ -79,14 +73,7 @@ Quarto products as of May 2025.
 
 :::
  
-```{r}
-#| label: quarto
-quarto |> 
-  mutate(major_minor = if_else(major_minor == 1.8, "1.8\nPre-release", as.character(major_minor))) |> 
-  ggplot(aes(major_minor, cumsum(downloads))) +
-  geom_line(aes(group = 1), color = posit_colors$blue, linewidth = 0.75) +  
-  plot_defaults
-```
+![](images/generate-plots_files/figure-typst/quarto-1.svg)
 
 ::: 
 
@@ -130,14 +117,8 @@ Shiny Server products as of May 2025.
 
 :::
 
-```{r}
-#| label: shiny
-#| fig-height: 2.4
-python |> 
-  filter(package == "shiny") |> 
-  growth_plot() + ggtitle("Shiny for Python")
-r |> filter(package == "shiny") |> growth_plot() + ggtitle("Shiny for R")
-```
+![](images/generate-plots_files/figure-typst/shiny-1.svg)
+![](images/generate-plots_files/figure-typst/shiny-2.svg)
 
 ::: 
 
@@ -205,14 +186,10 @@ Tables open-source packages.
 
 :::
 
-```{r}
-#| label: gt
-python |> filter(package == "great-tables") |> growth_plot() + ggtitle("great_tables")
-r |> filter(package == "gt") |> growth_plot() + ggtitle("gt")
-```
+![](images/generate-plots_files/figure-typst/gt-1.svg)
+![](images/generate-plots_files/figure-typst/gt-2.svg)
 
 :::
-
 
 ::: {.page-banner image_paths='("assets/images/hexes/plotnine.png",)'}
 
@@ -223,18 +200,13 @@ r |> filter(package == "gt") |> growth_plot() + ggtitle("gt")
 [Plotnine](https://plotnine.org/) is an implementation of
 the grammar of graphics in Python, heavily influenced by ggplot2 in R.
 Built upon the ubiquitous
-[matplotlib](https://matplotlib.org/) plotting library,
+[matplotlib](https://matplotlib.org/) plotting library, {{< colbreak >}}
 custom (and otherwise complex) plots are easy to reason about and build
 incrementally, while the simple plots remain simple to create.
 
-There is 1 FTE Posit employee developing Plotnine as of May 2025.
-
 :::
 
-```{r}
-#| label: plotnine
-python |> filter(package == "plotnine") |> growth_plot() + ggtitle("Plotnine")
-```
+![](images/generate-plots_files/figure-typst/plotnine-1.svg)
 
 :::
 
@@ -256,11 +228,8 @@ re-run analyses on historical data, and undo mistakes.
 
 ::: 
 
-```{r}
-#| label: pins
-python |> filter(package == "pins") |> growth_plot() + ggtitle("pins for Python")
-r |> filter(package == "pins", year(date) > 2021) |> growth_plot() + ggtitle("pins for R")
-```
+![](images/generate-plots_files/figure-typst/pins-1.svg)
+![](images/generate-plots_files/figure-typst/pins-2.svg)
 
 :::
 
@@ -279,11 +248,8 @@ documentation by extracting information about the generated model.
 
 ::: 
 
-```{r}
-#| label: vetiver
-python |> filter(package == "vetiver") |> growth_plot() + ggtitle("vetiver for Python")
-r |> filter(package == "vetiver", year(date) > 2021) |> growth_plot() + ggtitle("vetiver for R")
-```
+![](images/generate-plots_files/figure-typst/vetiver-1.svg)
+![](images/generate-plots_files/figure-typst/vetiver-2.svg)
 
 :::
 
@@ -317,6 +283,7 @@ There is 1 FTE Posit employee developing enterprise focused open-source
 products like orbital as of May 2025.
 
 :::
+
 :::
 
 ::: {.page-banner image_paths='("assets/images/hexes/tidyverse.svg", )'}
@@ -340,15 +307,7 @@ open-source products as of May 2024.
 
 :::
 
-```{r}
-#| label: tidyverse
-r |> 
-  filter(project == "tidyverse") |> 
-  group_by(date) |> 
-  summarise(downloads = sum(downloads)) |> 
-  growth_plot() + 
-  ggtitle("Tidyverse")
-```
+![](images/generate-plots_files/figure-typst/tidyverse-1.svg)
 
 :::
 
@@ -374,15 +333,7 @@ open-source products as of May 2025.
 
 :::
 
-```{r}
-#| label: tidymodels
-r |> 
-  filter(project == "tidymodels") |> 
-  group_by(date) |> 
-  summarise(downloads = sum(downloads)) |> 
-  growth_plot() + 
-  ggtitle("Tidymodels")
-```
+![](images/generate-plots_files/figure-typst/tidymodels-1.svg)
 
 :::
 
@@ -410,15 +361,7 @@ open-source packages as of May 2025.
 
 :::
 
-```{r}
-#| label: connectivity
-r |> 
-  filter(project == "connectivity") |> 
-  group_by(date) |> 
-  summarise(downloads = sum(downloads)) |> 
-  growth_plot() + 
-  ggtitle("R Connectivity")
-```
+![](images/generate-plots_files/figure-typst/connectivity-1.svg)
 
 :::
 
@@ -431,14 +374,6 @@ r |>
 R-lib is a large collection of R packages that make it easier to build,
 find, and use effective tools for data analysis.
 
-```{r}
-#| include: false
-#| eval: false
-repos_json <- gh::gh("/orgs/{org}/repos", org = "r-lib", .limit = Inf)
-names <- sapply(repos_json, "[[", "name")
-length(intersect(names, rownames(available.packages())))
-```
-
 {{< colbreak >}}
 
 There are currently 114 R-lib packages. Popular packages
@@ -450,15 +385,7 @@ include [devtools](https://devtools.r-lib.org/),
 
 :::
 
-```{r}
-#| label: rlibs
-r |> 
-  filter(project == "r-lib") |> 
-  group_by(date) |> 
-  summarise(downloads = sum(downloads)) |> 
-  growth_plot() + 
-  ggtitle("R Libs")
-```
+![](images/generate-plots_files/figure-typst/rlibs-1.svg)
 
 ::: 
 
@@ -484,10 +411,7 @@ desktop and server products as of May 2024.
 
 :::
 
-```{r}
-#| label: rstudio
-rstudio |> growth_plot() + ggtitle("RStudio")
-```
+![](images/generate-plots_files/figure-typst/rstudio-1.svg)
 
 :::
 
