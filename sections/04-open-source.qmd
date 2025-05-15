@@ -499,7 +499,7 @@ rstudio |> growth_plot() + ggtitle("RStudio")
 
 [Positron](https://positron.posit.co//)
 is a new multi-language IDE designed for Data Science.  Positron has first-class, built-in 
-support for R and/or Python via an integrated console, with extensibility options for other 
+support for R and Python via an integrated console, with extensibility options for other 
 languages. This native support includes specialized views and panes throughout 
 Positron such as a [Data Explorer](https://positron.posit.co/data-explorer.html), 
 [Connections Pane](https://positron.posit.co/connections-pane.html), Variables Pane, 
