@@ -648,7 +648,7 @@ The #link("https://www.tidyverse.org/")[tidyverse] is an opinionated collection 
 The tidyverse consists of nine core packages (including ggplot2, tidyr and readr) and 31 packages overall.
 
 #colbreak()
-There are 9 FTE Posit employees developing Tidyverse and related open-source products as of May 2024.
+There are 9 FTE Posit employees developing Tidyverse and related open-source products as of May 2025.
 
 ]
 #box(image("images/generate-plots_files/figure-typst/tidyverse-1.svg"))
@@ -716,7 +716,7 @@ image_paths:("assets/images/hexes/RStudio.svg",),
 #link("https://posit.co/products/open-source/rstudio/")[RStudio] is a multi-language IDE designed for Data Science with R and Python. It augments the standard code console with an editor that can display Notebooks, launch apps, highlight code syntax, spot code errors, and directly execute code. Built into the IDE are tools for debugging, plotting, browsing files, and managing project histories and workspaces. Together these tools make data scientists and developers much more efficient.
 
 #colbreak()
-There are 5 FTE Posit employees developing the RStudio IDE open-source desktop and server products as of May 2024.
+There are 5 FTE Posit employees developing the RStudio IDE open-source desktop and server products as of May 2025.
 
 ]
 #box(image("images/generate-plots_files/figure-typst/rstudio-1.svg"))
@@ -774,7 +774,7 @@ image_paths:("assets/images/hexes/package-manager.svg",),
 With the ubiquity of open source software in our daily lives, one area that most people don’t think about is 'How do you distribute that software quickly and securely to the end user?'. To that end, Posit created #link("https://posit.co/products/enterprise/package-manager/")[Posit Package Manager];, which gives companies a means for providing curated repositories, repository snapshots for better reproducibility, the ability to air-gap the repository for enhanced security and much more.
 
 #colbreak()
-As part of our commitment to improving the quality and availability of open source software for all, Posit hosts a public instance of Posit Package Manager called #link("https://packagemanager.posit.co/client/#/")[Posit Public Package Manager] that mirrors CRAN, PyPI and Bioconductor. This mirror served nearly 40 million downloads per month in Q1 2024.
+As part of our commitment to improving the quality and availability of open source software for all, Posit hosts a public instance of Posit Package Manager called #link("https://packagemanager.posit.co/client/#/")[Posit Public Package Manager] that mirrors CRAN, PyPI and Bioconductor. This mirror served over 46 million downloads per month in Q1 2025.
 
 ]
 ])

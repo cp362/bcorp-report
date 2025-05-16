@@ -504,8 +504,8 @@ As part of our commitment to improving the quality and availability of
 open source software for all, Posit hosts a public instance of Posit
 Package Manager called [Posit Public Package
 Manager](https://packagemanager.posit.co/client/#/) that
-mirrors CRAN, PyPI and Bioconductor. This mirror served nearly 40
-million downloads per month in Q1 2024.
+mirrors CRAN, PyPI and Bioconductor. This mirror served over 46
+million downloads per month in Q1 2025.
 
 :::
 
