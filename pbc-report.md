@@ -306,7 +306,7 @@ provide others.
   assistant that understands R environments and shares context like
   column names and types to improve help quality.
 - [Chores](https://posit.co/blog/introducing-chores/) connects Ellmer to
-  your source editor in RStudio and Positron. I automates repetitive
+  your source editor in RStudio and Positron. It automates repetitive
   programming tasks.
 - [Mall](https://posit.co/blog/mall-ai-powered-text-analysis/) enables
   LLM powered sentiment analysis, text summarization, text

@@ -547,7 +547,7 @@ Selection of packages that assist during development
 ]
 - #link("https://shiny.posit.co/blog/posts/shiny-assistant/")[ShinyAssistant] helps prototype Shiny apps using a simple chat interface leveraging LLMs to generate entire applications.
 - #link("https://posit.co/blog/introducing-gander/")[Gander] is a coding assistant that understands R environments and shares context like column names and types to improve help quality.
-- #link("https://posit.co/blog/introducing-chores/")[Chores] connects Ellmer to your source editor in RStudio and Positron. I automates repetitive programming tasks.
+- #link("https://posit.co/blog/introducing-chores/")[Chores] connects Ellmer to your source editor in RStudio and Positron. It automates repetitive programming tasks.
 - #link("https://posit.co/blog/mall-ai-powered-text-analysis/")[Mall] enables LLM powered sentiment analysis, text summarization, text classification, information extraction and text translation. Mall is available for both R and Python.
 
 LLMs are also integrated as coding assistants into RStudio and Positron. Positron is Posit’s new IDE described in the #link(<positron>)[Positron] section below.
