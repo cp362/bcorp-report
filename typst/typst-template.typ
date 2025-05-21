@@ -41,11 +41,9 @@
                 #text(weight: "bold", size: 24pt, subtitle)
             ]
         ]
-        #place(center + bottom, dy: -36pt)[
-          #block(height: 36pt)[
-            #box(height: 24pt, baseline: -6pt, image("assets/images/posit-logo-white-TM.svg"))
-            #box(inset: (x: 12pt), line(length: 100%, angle: 90deg, stroke: 0.5pt + white))
-            #box(image("assets/images/B-Corp-Logo-White-RGB.png"))
+        #place(center + bottom, dy: -40pt)[
+          #block(height: 40pt)[
+            #image("assets/images/Posit-PBC-lockup-white.svg")
           ]
         ]
     ]
@@ -58,10 +56,8 @@
       #show link: set text(fill: white)
       #show par: set block(spacing: 0.5em)
       #place(bottom + center)[
-        #block(height: 48pt)[
-                  #box(height: 36pt, baseline: -8pt, image("assets/images/posit-logo-white-TM.svg"))
-                  #box(inset: (x: 24pt), line(length: 100%, angle: 90deg, stroke: 0.5pt + white))
-                  #box(image("assets/images/B-Corp-Logo-White-RGB.png"))
+        #block(height: 56pt)[
+                  #image("assets/images/Posit-PBC-lockup-white.svg")
                 ]
         
         The open source data science company
