@@ -89,7 +89,7 @@ stories in interactive point-and-click web applications. In April 2023,
 Posit released the Python version of Shiny, bringing the same great
 reactive programming model and modular design to the PyData ecosystem.  
 More recently, the [Shiny Express](https://shiny.posit.co/py/docs/express-in-depth.html) 
-syntax was introduced. It offers a steamlined syntax that makes it easier 
+syntax was introduced. It offers a streamlined syntax that makes it easier 
 for Python developers to get started with Shiny.
 
 {{< colbreak >}}
