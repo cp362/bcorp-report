@@ -332,7 +332,7 @@
 
 #show: doc => posit(
   title: [Posit Benefit Corporation],
-  subtitle: [DRAFT 2025 Annual Report],
+  subtitle: [2025 Annual Report],
   font: ("Open Sans",),
   doc,
 )
@@ -441,7 +441,7 @@ Creation of free and open source software for data science, scientific research,
 
 ]
 #pagebreak()
-= Free and Open Source ~Software and Tools
+= Free and Open Source Software and Tools
 <free-and-open-source-software-and-tools>
 #col-2()[
 In 2022 and earlier, when Posit was called RStudio, we were often thought of as an "R company" because of our dedication to developing and maintaining some of the most used R packages in the world. But Posit has always been better described as a #emph[scientific software] company: supporting Python (via the #link("https://github.com/rstudio/reticulate")[reticulate] package, RStudio language support), working with relational databases and data platforms such as Apache Spark (a cross-platform data frame compatibility via #link("https://github.com/apache/arrow")[feather/Apache Arrow];), and much more mean that we’ve never been solely an "R company".

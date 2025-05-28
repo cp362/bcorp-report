@@ -1,6 +1,6 @@
 ---
 title: "Posit Benefit Corporation"
-subtitle: DRAFT 2025 Annual Report
+subtitle: 2025 Annual Report
 quarto-required: 1.6.*
 format: 
   typst:
