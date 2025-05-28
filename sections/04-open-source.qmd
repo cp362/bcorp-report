@@ -1,24 +1,25 @@
 
 ::: {.cols-2}
 
-Before the company re-branded in 2022, Posit (then RStudio) was often
-thought of as an "R company" in the data community because of its
+In 2022 and earlier, when Posit was called RStudio, we were often
+thought of as an "R company" because of our
 dedication to developing and maintaining some of the most used R
-libraries in the world. However, Posit has always been better described
-as a *scientific software* company. Supporting Python (via the
+packages in the world. But Posit has always been better described
+as a *scientific software* company: supporting Python (via the
 [reticulate](https://github.com/rstudio/reticulate)
 package, RStudio language support), working with relational databases
 and data platforms such as Apache Spark (a cross-platform data frame
 compatibility via [feather/Apache
 Arrow](https://github.com/apache/arrow)), and much more
 mean that we've never been solely an "R company".
+More recently, we have developed explicitly cross-language tools like 
+Quarto and Positron, and developed Python packages like Great Tables,
+chatlas, and orbital.
 
 {{< colbreak >}}
 
-Since the 2024 PBC report, Posit has released several new packages in
-the Python and R ecosystems and continues to maintain and grow the
-libraries previously developed. The following subsections highlight
-selected Posit software projects of interest to the broad data science
+The following subsections highlight
+selected Posit software projects of interest to the broader data science
 community. Where metrics are published, please note these represent a
 *lower bound* on the actual number, as it is difficult-to-impossible to
 account for every install and usage in the world.
@@ -63,10 +64,7 @@ Quarto allows users to choose from multiple computational engines
 R, Python, Julia, JavaScript and many other languages. It also allows
 users to author documents as plain text markdown or Jupyter Notebooks,
 and publish to numerous outputs such as HTML, PDF, MS Word, ePub and
-more. Finally, the community has already extended Quarto , as shown by
-the
-[quartodoc](https://machow.github.io/quartodoc/get-started/overview.html)
-project for developing API documentation.
+more, and for the community to develop its own extensions.
 
 There are 4 full time equivalent (FTE) employees developing open-source
 Quarto products as of May 2025.
@@ -89,7 +87,7 @@ stories in interactive point-and-click web applications. In April 2023,
 Posit released the Python version of Shiny, bringing the same great
 reactive programming model and modular design to the PyData ecosystem.  
 More recently, the [Shiny Express](https://shiny.posit.co/py/docs/express-in-depth.html) 
-syntax was introduced. It offers a streamlined syntax that makes it easier 
+syntax was introduced, offering streamlined syntax that makes it easier 
 for Python developers to get started with Shiny.
 
 {{< colbreak >}}
@@ -137,19 +135,19 @@ and incorporate LLM capabilities in the solutions they provide others.
 
 ### Packages to enable LLMs in data science {.unlisted}
 
-- [Ellmer](https://ellmer.tidyverse.org/) makes it easy to use large language models (LLM) from R. It supports a  variety of LLM providers and implements a rich set of features including streaming outputs, tool/function calling and structured data extraction.
-- [Chatlas](https://posit.co/blog/announcing-chatlas/) is a flexible Python interface to many LLM providers (playing a similar role to ellmer). It supports tool use, function calling, and streaming responses.
-- [Ragnar](https://ragnar.tidyverse.org) brings Retrieval-Augmented Generation (RAG) to R. Helps users index their own data and get LLM responses with grounded answers.
-- [Querychat](https://github.com/posit-dev/querychat) adds an SQL-powered LLM to Shiny apps. It lets users explore data with natural language. Querychat works in both R and Python.
+- [ellmer](https://ellmer.tidyverse.org/) makes it easy to use large language models (LLM) from R. It supports a  variety of LLM providers and implements a rich set of features including streaming outputs, tool/function calling and structured data extraction.
+- [chatlas](https://posit.co/blog/announcing-chatlas/) is a flexible Python interface to many LLM providers (playing a similar role to ellmer). It supports tool use, function calling, and streaming responses.
+- [ragnar](https://ragnar.tidyverse.org) brings Retrieval-Augmented Generation (RAG) to R. Helps users index their own data and get LLM responses with grounded answers.
+- [querychat](https://github.com/posit-dev/querychat) adds an SQL-powered LLM to Shiny apps. It lets users explore data with natural language. Querychat works in both R and Python.
 
 {{< colbreak >}}
 
 ### Selection of packages that assist during development {.unlisted}
 
-- [ShinyAssistant](https://shiny.posit.co/blog/posts/shiny-assistant/) helps prototype Shiny apps using a simple chat interface leveraging LLMs to generate entire applications.
-- [Gander](https://posit.co/blog/introducing-gander/) is a coding assistant that understands R environments and shares context like column names and types to improve help quality.
-- [Chores](https://posit.co/blog/introducing-chores/) connects Ellmer to your source editor in RStudio and Positron. It automates repetitive programming tasks.
-- [Mall](https://posit.co/blog/mall-ai-powered-text-analysis/) enables LLM powered sentiment analysis, text summarization, text classification, information extraction and text translation.   Mall is available for both R and Python.
+- [Shiny Assistant](https://shiny.posit.co/blog/posts/shiny-assistant/) helps prototype Shiny apps using a simple chat interface leveraging LLMs to generate entire applications.
+- [gander](https://posit.co/blog/introducing-gander/) is a coding assistant that understands R environments and shares context like column names and types to improve help quality.
+- [chores](https://posit.co/blog/introducing-chores/) connects Ellmer to your source editor in RStudio and Positron. It automates repetitive programming tasks.
+- [mall](https://posit.co/blog/mall-ai-powered-text-analysis/) enables LLM powered sentiment analysis, text summarization, text classification, information extraction and text translation.   Mall is available for both R and Python.
 
 LLMs are also integrated as coding assistants into RStudio and Positron.
 Positron is Posit's new IDE described in the [Positron](#positron) section below.
@@ -317,7 +315,7 @@ open-source products as of May 2025.
 
 ::: {.cols-2}
 
-[Tidymodels](https://www.tidymodels.org/) is a cohesive
+[tidymodels](https://www.tidymodels.org/) is a cohesive
 collection of packages that perform tasks relevant to statistical
 modeling and machine learning. Tidymodels packages share a common syntax
 and design philosophy, and are designed to work seamlessly with
@@ -415,26 +413,6 @@ desktop and server products as of May 2025.
 
 :::
 
-# Additional Posit Free-to-Use Solutions
-
-::: {.cols-2}
-
-In addition to open-source contributions, Posit develops free-to-use tools that help data scientists write and share code. Some, like Positron, are source-available. Others, like Public Package Manager, are free hosted services.
-
-{{< colbreak >}}
-
-Together, they extend our ecosystem, making high-quality tools accessible to all.
-
-:::
-
-```{=typst}
-#place(bottom, dy: 1.25in,
-  align(center, 
-      image("assets/images/COVER-2-POSIT24 Seattle_Nick Klein Photography-876.jpg", width: 100% + 2.5in, fit: "cover")
-  )
-)
-```
-
 {{< pagebreak >}}
 
 ::: {.page-banner image_paths='("assets/images/hexes/positron.png",)' image_height="50%"}
@@ -504,10 +482,9 @@ As part of our commitment to improving the quality and availability of
 open source software for all, Posit hosts a public instance of Posit
 Package Manager called [Posit Public Package
 Manager](https://packagemanager.posit.co/client/#/) that
-mirrors CRAN, PyPI and Bioconductor. This mirror served over 46
-million downloads per month in Q1 2025.
+mirrors CRAN, PyPI and Bioconductor. This mirror servs over 46
+million downloads per month (as of Q1 2025).
 
 :::
 
 :::
-

@@ -65,7 +65,7 @@ keep-typ: true
 
 {{< pagebreak >}}
 
-# Posit's Open Source Development Projects
+# Free and Open Source Software and Tools
 
 {{< include sections/04-open-source.qmd >}}
 

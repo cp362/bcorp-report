@@ -13,7 +13,7 @@ tools over the web.
 
 Together, Posit's open-source software and commercial software form a
 virtuous cycle. In most companies, a "customer" is someone who pays
-you. For us, the definition of a customer must include the open source
+you. For us, a "customer" must include the open source
 community, with whom we exchange the currencies of attention, respect,
 and love. When we deliver value to our open source users, they will
 likely bring our software into their professional environments, which
