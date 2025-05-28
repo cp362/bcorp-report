@@ -12,11 +12,12 @@ and data platforms such as Apache Spark (a cross-platform data frame
 compatibility via [feather/Apache
 Arrow](https://github.com/apache/arrow)), and much more
 mean that we've never been solely an "R company".
+
+{{< colbreak >}}
+
 More recently, we have developed explicitly cross-language tools like 
 Quarto and Positron, and developed Python packages like Great Tables,
 chatlas, and orbital.
-
-{{< colbreak >}}
 
 The following subsections highlight
 selected Posit software projects of interest to the broader data science
