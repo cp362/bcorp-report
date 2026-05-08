@@ -25,26 +25,39 @@ packages_sql <- paste0("'", paste(python_packages, collapse = "','"), "'")
 mirrors <- c("bandersnatch", "z3c.pypimirror", "Artifactory", "devpi")
 mirrors_sql <- paste0("'", paste(mirrors, collapse = "','"), "'")
 
+existing_python_downloads <- read_csv(
+  here("data", "python_package_downloads.csv")
+)
+start_date <- max(existing_python_downloads$date) + 1
+
 sql <- sprintf(
   "
-SELECT 
+SELECT
     COUNT(*) AS downloads,
     DATE(timestamp) AS `date`,
     file.project AS package
 FROM `bigquery-public-data.pypi.file_downloads`
 WHERE
-    file.project IN (%s)
-    AND DATE(timestamp) >= '2023-10-25'
-    AND details.installer.name NOT IN (%s)
+      file.project IN (%s)
+      AND timestamp >= TIMESTAMP('%s')
+      AND timestamp <  TIMESTAMP('%s')
+      AND details.installer.name NOT IN (%s)
 GROUP BY `date`, file.project
 ORDER BY `date`",
   packages_sql,
+  start_date,
+  Sys.Date(),
   mirrors_sql
 )
 
+# Inspect bytes to be scanned before running:
+# bq_perform_query_dry_run(sql, billing = billing)
+
 tb <- bq_project_query(billing, sql)
-python_downloads <- bq_table_download(tb)
-python_downloads |>
+new_python_downloads <- bq_table_download(tb)
+
+bind_rows(existing_python_downloads, new_python_downloads) |>
+  distinct(package, date, .keep_all = TRUE) |>
   arrange(package, date) |>
   write_csv(here("data", "python_package_downloads.csv"))
 
@@ -85,14 +98,32 @@ r_packages <-
     connectivity
   )
 
-r_package_downloads <- r_packages |>
-  rowwise() |>
-  mutate(downloads = list(cran_downloads(package, from = "2017-01-01")))
+existing_r_downloads <- read_csv(here("data", "r_package_downloads.csv"))
 
-r_package_downloads |>
+# Per-package start date: day after each package's last recorded date,
+# or 2017-01-01 for packages new to the list.
+max_dates <- existing_r_downloads |>
+  group_by(package) |>
+  summarise(max_date = max(date), .groups = "drop") 
+  
+r_packages_with_start <- r_packages |>
+  left_join(max_dates, by = "package") |>
+  mutate(
+    start_date = if_else(is.na(max_date), as.Date("2017-01-01"), max_date + 1)
+  )
+
+new_r_downloads <- r_packages_with_start |>
+  rowwise() |>
+  mutate(
+    downloads = list(cran_downloads(package, from = as.character(start_date)))
+  )  |>
+  ungroup() |>
   unnest(downloads, names_sep = "_") |>
-  select(-downloads_package) |>
-  rename(date = downloads_date, downloads = downloads_count) |>
+  select(package, project, date = downloads_date, downloads = downloads_count)
+
+bind_rows(existing_r_downloads, new_r_downloads) |>
+  distinct(package, project, date, .keep_all = TRUE) |>
+  arrange(package, date) |>
   write_csv(here("data", "r_package_downloads.csv"))
 
 # IDE downloads ----------------------------------------------------------
@@ -139,9 +170,12 @@ quarto_rstudio_dls <-
   rstudio_dls |>
   filter(type %in% c("quarto")) |>
   mutate(
+    source = "rstudio",
     version = str_extract(filename, "[01]\\.[0-9]\\.[0-9]+"),
     major_minor = str_extract(version, "[01]\\.[0-9]"),
-  )
+  ) |> 
+  filter(date <= ymd("2024-01-24"))  # 1.4 release, served only from GitHub from this point forward
+
 
 
 # Quarto Downloads -------------------------------------------------------
@@ -150,24 +184,24 @@ quarto_rstudio_dls <-
 # ./helpers/github_quarto.sh
 
 releases <- read_csv(here("data", "releases.csv")) |>
-  filter(!str_detect(name, "changelog"), !str_detect(name, "checksums")) %>%
+  filter(!str_detect(name, "changelog"), !str_detect(name, "checksum")) |>
   rename(downloads = download_count, filename = name) |>
   mutate(
     date = date(created),
-    version = str_extract(filename, "[01]\\.[0-9]\\.[0-9]+"),
-    major_minor = str_extract(version, "[01]\\.[0-9]")
+    version = str_extract(filename, "[01]\\.[0-9]+(\\.[0-9]+)?"),
+    major_minor = str_extract(version, "[01]\\.[0-9]+"),
+    source = "github"
   )
-
 
 releases |>
   bind_rows(quarto_rstudio_dls) |>
-  mutate(
-    major_minor = ifelse(major_minor %in% c("0.2", "0.3"), "0.9", major_minor)
-  ) |>
+  filter(! (major_minor %in% c("0.1", "0.2", "0.3"))) |> 
   group_by(major_minor) |>
   summarise(
     downloads = sum(downloads),
     min_date = min(as.Date(date)),
-    max_date = max(as.Date(date))
+    max_date = max(as.Date(date)),
+    .groups = "drop"
   ) |>
+  arrange(numeric_version(major_minor)) |>
   write_csv(here("data", "quarto_downloads.csv"))
