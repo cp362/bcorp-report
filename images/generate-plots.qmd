@@ -38,7 +38,7 @@ thematic_on(
 python <- read_csv(here("data", "python_package_downloads.csv"))
 r <- read_csv(here("data", "r_package_downloads.csv"))
 rstudio <- read_csv(here("data", "rstudio_os_downloads.csv"))
-quarto <- read_csv(here("data", "quarto_downloads.csv"))
+quarto <- read_csv(here("data", "quarto_downloads.csv"), col_types = cols(major_minor = col_character()))
 
 plot_defaults <- list(
   scale_y_continuous(
@@ -64,7 +64,8 @@ growth_plot <- function(data, y = downloads) {
 ```{r}
 #| label: quarto
 quarto |> 
-  mutate(major_minor = if_else(major_minor == 1.8, "1.8\nPre-release", as.character(major_minor))) |> 
+  mutate(major_minor = if_else(major_minor == "1.10", "1.10\nPre-release", as.character(major_minor)),
+  major_minor = factor(major_minor, levels =major_minor)) |> 
   ggplot(aes(major_minor, cumsum(downloads))) +
   geom_line(aes(group = 1), color = posit_colors$blue, linewidth = 0.75) +  
   plot_defaults
