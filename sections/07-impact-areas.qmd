@@ -1,3 +1,5 @@
+::: {.cols-2}
+
 ## Community
 
 ### Civic Engagement and Giving
@@ -81,3 +83,7 @@ carbon neutrality in 2020 and have since maintained our neutrality by purchasing
 carbon offsets for years 2021 - 2025. Below is a breakdown of our scope 2 and 
 scope 3 greenhouse gas emissions from the past three years. We track our emissions 
 so that we can purchase an equal amount of carbon offsets.
+
+:::
+
+![](images/generate-plots_files/figure-typst/emissions-1.svg)
