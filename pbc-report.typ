@@ -858,12 +858,8 @@ Investments in employee career development include in-house management training 
 As a remote-first organization, we do not generate meaningful greenhouse gas emissions. However, for the emissions we do generate from cloud computing, business travel, and our Boston headquarters we purchase carbon offsets to achieve carbon neutrality. We first achieved carbon neutrality in 2020 and have since maintained our neutrality by purchasing carbon offsets for years 2021 - 2025. Below is a breakdown of our scope 2 and scope 3 greenhouse gas emissions from the past three years. We track our emissions so that we can purchase an equal amount of carbon offsets.
 
 ]
-#place(bottom, dy: 2.25in,
-  align(center, 
-    image("assets/images/BACKCOVER-2-POSIT24 Seattle_Nick Klein Photography-401.jpg", 
-      width: 100% + 2.5in, fit: "cover")
-  )
-)
+#box(image("images/generate-plots_files/figure-typst/emissions-1.svg"))
+
 #back_page(repo: "https://github.com/posit-dev/bcorp-report/")[
   
 ]
