@@ -81,12 +81,6 @@ keep-typ: true
 
 ::: 
 
-{{< include sections/06-score-improvements.qmd >}}
-
-```{=typst}
-#v(1em)
-```
-
 ::: {.cols-2}
 
 {{< include sections/07-impact-areas.qmd >}}
