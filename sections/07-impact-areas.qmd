@@ -60,7 +60,7 @@ success.
 Investments in employee career development include in-house
 management training programs, tooling and education to support
 constructive feedback, and documentation of job levels, pay ranges, and
-career paths within our major functions. {{< colbreak >}} In 2021, we initiated an annual
+career paths within our major functions. In 2021, we initiated an annual
 organizational health survey, which allows us to collect and respond to
 employee feedback. We have also augmented our benefits to include a
 "lifestyle savings account" (LSA) funded by Posit that each individual
